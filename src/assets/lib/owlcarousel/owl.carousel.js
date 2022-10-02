@@ -2511,7 +2511,7 @@
 		 * The autoplay timeout.
 		 * @type {Timeout}
 		 */
-		this._timeout = null;
+		this._timeout = 3000;
 
 		/**
 		 * Indicates whenever the autoplay is paused.

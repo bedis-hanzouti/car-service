@@ -1,0 +1,228 @@
+<!-- <form [formGroup]="form" (ngSubmit)="submit()"> -->
+<!-- [form]="form.at(index)" -->
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-horizontal-stepper linear>
+    <mat-step
+      *ngFor="let step of steps; let index = index; let last = last"
+      [stepControl]="form"
+    >
+      <ng-template matStepLabel>{{ step.label }}</ng-template>
+      <!-- <formly-form
+         
+          [model]="model"
+          [fields]="step.fields"
+          [options]="options[index]">
+        </formly-form> -->
+
+      <div >
+        <!-- form-row end.// -->
+        <div *ngIf="index==0">
+        <div class="form-row">
+        
+          <!-- form-group end.// -->
+          <div class="form-group d-flex justify-content-center">
+            <div class="form-group col-md-6">
+              <label>First Name</label>
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <div class="form-group col-md-6">
+            <label>Last Name</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <div class="form-group col-md-6">
+            <label>phone number</label>
+            <br>
+            <ngx-intl-tel-input
+            [cssClass]="'form-control col-md-6'"
+            [preferredCountries]="[CountryISO.Tunisia, CountryISO.UnitedKingdom]"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.Tunisia"
+            [maxLength]="15"
+            [phoneValidation]="true"
+            
+            name="phone"
+            
+          ></ngx-intl-tel-input>
+          </div>
+        </div>
+       
+        
+        <!-- form-group end.// -->
+        <!-- <div class="form-group d-flex justify-content-center">
+          <label class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              value="option1"
+            />
+            <span class="form-check-label"> Male </span>
+          </label>
+          <label class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              value="option2"
+            />
+            <span class="form-check-label"> Female</span>
+          </label>
+        </div> -->
+      </div>
+        
+        <!-- form-group end.// -->
+        <div *ngIf="index==1">
+          
+          <div class="form-row">
+        
+            <!-- form-group end.// -->
+            <div class="form-group d-flex justify-content-center">
+              <div class="form-group col-md-6">
+                <label>Car Brand</label>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+        
+            <!-- form-group end.// -->
+            <div class="form-group d-flex justify-content-center">
+              <div class="form-group col-md-6">
+                <label>Model</label>
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group d-flex justify-content-center">
+            <div class="form-group col-md-6">
+              <label>chassis number</label>
+              <input type="number" class="form-control" />
+            </div>
+          </div>
+          <!-- form-group end.// -->
+          <div class="form-group d-flex justify-content-center">
+            <label class="form-check form-check-inline">
+              
+              <input (change)="display=false"
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                value="option1"
+              />
+              <span class="form-check-label"> TN </span>
+            </label>
+            <label class="form-check form-check-inline">
+              <input
+              (change)="display=true"
+                class="form-check-input"
+                type="radio"
+                name="gender"
+                value="option2"
+              />
+              <span class="form-check-label"> RS</span>
+            </label>
+          </div>
+
+          <div *ngIf="display" class="form-group d-flex justify-content-center">
+            <div class="form-group col-md-6">
+              <label>Pays</label>
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          </div>
+      
+      
+        <!-- form-row.// -->
+
+        
+        <button
+          *ngIf="index !== 0"
+          matStepperPrevious
+          class="btn btn-primary text-center"
+          type="button"
+          (click)="prevStep(index)"
+        >
+          Back
+        </button>
+        <button
+          *ngIf="!last"
+          matStepperNext
+          class="btn btn-primary"
+          type="button"
+          [disabled]="!form.valid"
+          (click)="nextStep(index)"
+        >
+          Next
+        </button>
+        <button
+          *ngIf="last"
+          class="btn btn-primary"
+          [disabled]="!form.valid"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>
+
+<!-- <button mat-raised-button (click)="isEditable = !isEditable">
+    {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+  </button>
+  
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper> -->
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
+
+<!-- <select (change)="display=!display">
+          <option  value="hi">hi</option>
+          <option value="cc">cc</option>
+        </select>
+        <button (click)="display=!display" >display</button>
+         <mat-form-field *ngIf="display">
+          <input matInput placeholder="dortmund"  required>
+        </mat-form-field> -->
