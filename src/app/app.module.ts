@@ -39,7 +39,8 @@ import { LoginComponent } from './login/login.component';
     Home2Component,
     SteperComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+   
   ],
   imports: [
     MatStepperModule,

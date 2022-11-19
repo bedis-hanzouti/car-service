@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500,700&subset=cyrillic');
+
+body {
+    height: 100%;
+    margin: 10px;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    color: #676767;
+}
+.tarifs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.tarifs .box {
+    width: 300px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    height: 200px;
+    margin: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    user-select: none;
+}
+.tarifs .box h4 {
+    font-size: 20px;
+    font-weight: 400;
+    padding: 0 20px;
+    margin-bottom: 0;
+}
+.tarifs .box p {
+    font-size: 14px;
+}
+
+.tarifs .box span {
+    font-size: 40px;
+}
+.tarifs .radio-card label {
+    padding: 0;
+    height: 200px;
+    transition: all 0.3s ease-in-out;
+}
+.tarifs .radio-card label:hover {
+    cursor: pointer;
+    background: tint(#00cc99, 85);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+.tarifs .radio-card label:active {
+    background: shade(#00cc99, 5);
+    color: tint(#00cc99, 80);
+}
+.tarifs .radio-card input[type="radio"]:checked ~ label {
+    background: url('http://i.yapx.ru/B9Fjg.png') #03a9f4;
+    background-repeat: no-repeat;
+    background-size: 350px;
+    background-position: 60px -80px;
+    color: white;
+}
+.tarifs .planes-radio {
+    display: none;
+}
+.tab-content{
+    display: none;
+}
+.tarifs .small-text {
+    text-align: center;
+    width: 100%;
+}
+.tarifs .bottom {
+    display: flex;
+    flex: 1;
+}
+.tarifs .bottom .takemymoney {
+    flex-basis: 50%;
+}
+.tarifs .bottom .next-step {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+input {
+    display: none;
+}
+label.tab {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #676767;
+    border: 1px solid transparent;
+}
+label.tab:before {
+    font-weight: normal;
+    margin-right: 10px;
+}
+label.tab:hover {
+    color: #888;
+    cursor: pointer;
+}
+input:checked + label.tab {
+    color: #555;
+    border: 1px solid #ddd;
+    border-top: 2px solid #03a9f4;
+    border-bottom: 1px solid #fff;
+}

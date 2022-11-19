@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { Home2Component } from './home2/home2.component';
+
 import { LoginComponent } from './login/login.component';
 import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
 import { SteperComponent } from './steper/steper.component';
@@ -11,9 +12,7 @@ const routes: Routes = [
   {
     path:'rdv',component:RendezVousComponent
   },
-  // {
-  //   path:'home',component:HomeComponent
-  // },
+ 
   {
     path:'',component:Home2Component
   },
@@ -25,6 +24,11 @@ const routes: Routes = [
   },
   {
     path:'step',component:SteperComponent
+  },
+ 
+  {path:'car',
+  loadChildren:() =>import('./car/car-routing.module').then(m => m.CarRoutingModule)
+    // path:'mat',component:MatriculeComponent
   },
   {
     path:'**', redirectTo: '',
