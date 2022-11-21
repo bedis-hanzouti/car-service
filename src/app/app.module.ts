@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { FlatpickrModule } from 'angularx-flatpickr';
+
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
@@ -44,6 +44,7 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     MatStepperModule,
+   
     NgxIntlTelInputModule,
     FormlyBootstrapModule,
     ReactiveFormsModule,

@@ -1,103 +1,39 @@
-<section class="tarifs">
-    <input id="tab1" type="radio" name="tabs" checked>
-    <label class="tab" for="tab1">1 option</label>
+<div class="main">
+  <div class="header">
+    <h1>Angular ng-stepper </h1>
+  </div>
 
-    <input id="tab2" type="radio" name="tabs">
-    <label class="tab" for="tab2">2 option</label>
+  <ng-stepper #cdkStepper [linear]="true">
+    <cdk-step [stepControl]="stepOne.stepOneForm" [optional]="false">
+      <ng-template cdkStepLabel>
+        <div class="step-bullet">1</div>
+        <div class="step-title">Personal Details <span class="required">*</span></div>
+      </ng-template>
+      <app-step-one #stepOne></app-step-one>
+    </cdk-step>
 
-    <div class="tab-content" id="content1">
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="1" id="month1" checked/>
-            <label for="month1" id="radio-label1">   
-          <h4>Box 1</h4>
-        <p>Some text</p>
-        <span class="price">500 $</span>        
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="2" id="month2" />
-            <label for="month2" id="radio-label2"> 
-          <h4>Box 2</h4>
-        <p>Some text</p>
-        <span class="price">1400 $</span>        
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="3" id="month3" />
-            <label for="month3" id="radio-label3">       
-          <h4>Box 3</h4>
-        <p>Some text</p>
-        <span class="price">2500 $</span>        
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="4" id="month4" />
-            <label for="month4" id="radio-label4">     
-          <h4>Box 4</h4>     
-        <span class="price">570 $</span>   
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="5" id="month5" />
-            <label for="month5" id="radio-label5">        
-          <h4>Box 5</h4>         
-        <span class="price">2000 $</span>       
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="6" id="month6" />
-            <label for="month6" id="radio-label6">          
-          <h4>Box 6</h4>
-        <span class="price">3000 $</span>        
-    </label>
-        </div>
-    </div>
-    <div class="tab-content" id="content2">
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="7" id="month7" checked/>
-            <label for="month7" id="radio-label7">        
-          <h4>Box 7</h4>
-        <p>Some text</p>
-        <span class="price">3500 $</span>         
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="8" id="month8" />
-            <label for="month8" id="radio-label8">  
-          <h4>Box 8</h4>
-        <p>Some text</p>
-        <span class="price">4400 $</span>         
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="9" id="month9" />
-            <label for="month9" id="radio-label9">        
-          <h4>Box 9</h4>
-        <p>Some text</p>
-        <span class="price">5500 $</span>          
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="10" id="month10" />
-            <label for="month10" id="radio-label10">        
-          <h4>Box 10</h4>          
-        <span class="price">6870 $</span>         
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="11" id="month11" />
-            <label for="month11" id="radio-label11">        
-          <h4>Box 11</h4>        
-        <span class="price">10000 $</span>         
-    </label>
-        </div>
-        <div class="radio-card box">
-            <input type="radio" class="planes-radio" name="tarif" value="12" id="month12" />
-            <label for="month12" id="radio-label12">         
-          <h4>Box 12</h4>
-        <span class="price">50000 $</span>
-      
-    </label>
-        </div>
-    </div>
-</section>
+    <cdk-step [stepControl]="stepTwo.stepTwoForm" [optional]="true">
+      <ng-template cdkStepLabel>
+        <div class="step-bullet">2</div>
+        <div class="step-title">Address</div>
+      </ng-template>
+      <app-step-two #stepTwo></app-step-two>
+    </cdk-step>
+
+    <cdk-step [stepControl]="stepThree.stepThreeForm" [optional]="false">
+      <ng-template cdkStepLabel>
+        <div class="step-bullet">3</div>
+        <div class="step-title">Payment Information <span class="required">*</span></div>
+      </ng-template>
+      <app-step-three #stepThree></app-step-three>
+    </cdk-step>
+
+    <cdk-step [stepControl]="stepFour.stepFourForm" [optional]="true" [state]="stepFour.state">
+      <ng-template cdkStepLabel>
+        <div class="step-bullet">4</div>
+        <div class="step-title">Contact Information</div>
+      </ng-template>
+      <app-step-four #stepFour></app-step-four>
+    </cdk-step>
+  </ng-stepper>
+</div>
