@@ -5,7 +5,6 @@ import { MatriculeComponent } from './matricule/matricule.component';
 import { CarRoutingModule } from './car-routing.module';
 import { RendezVousComponent } from './rendez-vous/rendez-vous.component';
 import { FormlyModule } from '@ngx-formly/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -19,49 +18,43 @@ import { StepOneComponent } from './step-one/step-one.component';
 import { StepTwoComponent } from './step-two/step-two.component';
 import { StepThreeComponent } from './step-three/step-three.component';
 import { StepFourComponent } from './step-four/step-four.component';
-import { NgStepperModule } from 'angular-ng-stepper';
 import { CdkStepperModule } from '@angular/cdk/stepper';
-
-
+import { SteperComponent } from '../steper/steper.component';
+import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ MatriculeComponent,
+  declarations: [
+    MatriculeComponent,
     InfoCarComponent,
     RendezVousComponent,
-    
+    SteperComponent,
+
     StepOneComponent,
     StepTwoComponent,
     StepThreeComponent,
-    StepFourComponent],
+    StepFourComponent
+  ],
   imports: [
-    BrowserAnimationsModule,
-   
-    CommonModule,
-    ReactiveFormsModule,
     CarRoutingModule,
-    NgStepperModule,
-    CdkStepperModule,
-    FormsModule,
+    CommonModule,
     MatStepperModule,
-   
+
     FormlyBootstrapModule,
-    
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-   
-    BrowserModule,
+
     RouterModule,
-    
-    
+
+    FormsModule,
     NgbModalModule,
-     
-  
-   
+
     FormlyModule.forRoot({
       validationMessages: [
         { name: 'required', message: 'This field is required' },
       ],
     }),
-  ]
+  ],
 })
-export class CarModule { }
+export class CarModule {}

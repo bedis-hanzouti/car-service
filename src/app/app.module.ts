@@ -23,7 +23,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ContactComponent } from './contact/contact.component';
-import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { LoginComponent } from './login/login.component';
 
 
@@ -37,33 +36,16 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     FooterComponent,
     Home2Component,
-    SteperComponent,
+   
     ContactComponent,
     LoginComponent,
    
   ],
   imports: [
-    MatStepperModule,
-   
-    NgxIntlTelInputModule,
-    FormlyBootstrapModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
     CommonModule,
     BrowserModule,
-    RouterModule,
-    
-    FormsModule,
-    NgbModalModule,
-    BrowserAnimationsModule ,
+    BrowserAnimationsModule,
     AppRoutingModule,
-   
-    FormlyModule.forRoot({
-      validationMessages: [
-        { name: 'required', message: 'This field is required' },
-      ],
-    }),
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,

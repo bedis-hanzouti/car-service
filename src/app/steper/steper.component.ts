@@ -1,11 +1,7 @@
 import { Component ,OnInit} from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
-import {
-  SearchCountryField,
-  
-  CountryISO
-} from "ngx-intl-tel-input";
+
 export interface StepType {
   label: string;
   fields: FormlyFieldConfig[];
@@ -17,10 +13,7 @@ export interface StepType {
   styleUrls: ['./steper.component.css']
 })
 export class SteperComponent implements OnInit {
-  SearchCountryField = SearchCountryField;
-  // TooltipLabel = TooltipLabel;
-  CountryISO = CountryISO;
-  preferredCountries: CountryISO[] = [CountryISO.Qatar];
+  
   activedStep = 0;
   display=false;
 

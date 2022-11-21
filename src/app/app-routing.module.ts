@@ -27,7 +27,7 @@ const routes: Routes = [
   },
  
   {path:'car',
-  loadChildren:() =>import('./car/car-routing.module').then(m => m.CarRoutingModule)
+  loadChildren:() =>import('./car/car.module').then(m => m.CarModule)
     // path:'mat',component:MatriculeComponent
   },
   {
